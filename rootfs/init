@@ -1,0 +1,19 @@
+#!/bin/busybox sh
+
+export PATH=/bin:/sbin
+
+/bin/busybox mount -t devtmpfs devtmpfs /dev
+/bin/busybox mount -t proc proc /proc
+/bin/busybox mount -t sysfs sysfs /sys
+
+/bin/busybox echo ""
+/bin/busybox echo "==============================="
+/bin/busybox echo "          44OS 0.1"
+/bin/busybox echo "==============================="
+/bin/busybox echo ""
+/bin/busybox echo "Kernel: Linux 6.12"
+ /bin/busybox echo "Architecture: x86_64"
+/bin/busybox echo "System initialized!"
+/bin/busybox echo ""
+
+exec /bin/busybox sh
