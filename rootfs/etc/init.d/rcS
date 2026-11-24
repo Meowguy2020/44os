@@ -1,0 +1,15 @@
+#!/bin/sh
+export PATH=/bin:/sbin
+mount -t devtmpfs devtmpfs /dev
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mkdir -p /dev/pts /dev/shm /tmp /run
+mount -t devpts devpts /dev/pts
+mount -t tmpfs -o mode=1777,nosuid,nodev tmpfs /tmp
+mount -t tmpfs -o mode=0755,nosuid,nodev tmpfs /run
+
+# basic hardening
+echo 2 > /proc/sys/kernel/kptr_restrict
+echo 1 > /proc/sys/kernel/dmesg_restrict
+
+echo "44OS 0.1 | $(uname -r) | $(uname -m)"
