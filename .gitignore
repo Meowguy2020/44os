@@ -1,2 +1,4 @@
 bzImage
 initramfs.gz
+rootfs/bin/*
+!rootfs/bin/busybox
